@@ -5,8 +5,10 @@ public class IAPaddle : MonoBehaviour
     //Public variable
     public float speed;
 
+
     // Private variables
     private Transform ball;
+    private float posicaoLimite;
 
     private void Start()
     {
@@ -23,5 +25,9 @@ public class IAPaddle : MonoBehaviour
         {
             transform.Translate(Vector2.down * speed * Time.deltaTime);
         }
+
+        posicaoLimite = Mathf.Clamp(transform.position.y, -4.10f, 4.10f);
+
+        transform.position = new Vector2(transform.position.x, posicaoLimite);
     }   
 }

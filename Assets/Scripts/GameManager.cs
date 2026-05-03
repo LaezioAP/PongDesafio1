@@ -6,12 +6,17 @@ public class GameManager : MonoBehaviour
 {
     public int playerScore;
     public int AIScore;
+    int winningScore = 5;
+
     public TextMeshProUGUI playerScoreText;
     public TextMeshProUGUI AIScoreText;
 
     [Header("Audios")]
     public AudioSource audioSource;
     public AudioClip pointScored;
+
+    [Header("UI Elements")]
+    public GameObject endGamePanel;
 
     public void PlayerPoint()
     {
@@ -37,4 +42,26 @@ public class GameManager : MonoBehaviour
 
         scoreText.DOColor(Color.green, 0.4f).SetLoops(2, LoopType.Yoyo);
     }
+
+    public void Start()
+    {
+        endGamePanel.SetActive(false);
+    }
+
+    public void Update()
+    {
+        if (playerScore == winningScore)
+        {
+            EndGame();
+        } else if (AIScore == winningScore)
+        {
+            EndGame();
+        }
+    }
+
+    public void EndGame()
+    {
+        endGamePanel.SetActive(true);
+    }
+
 }
