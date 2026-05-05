@@ -11,8 +11,8 @@ public class PlayerPaddle : MonoBehaviour
     {
         transform.Translate(Vector2.up * speed * directionInput.y * Time.deltaTime);
 
-        posicaoLimite = Mathf.Clamp(transform.position.y, -4.10f, 4.10f);
-        
+        posicaoLimite = Mathf.Clamp(transform.position.y, -4.07f, 4.07f);
+
         transform.position = new Vector2(transform.position.x, posicaoLimite);
     }
 

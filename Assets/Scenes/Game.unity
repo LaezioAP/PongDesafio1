@@ -773,7 +773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &141898541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f2c538e55c68d46812aa41420fb1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IAPaddle
-  speed: 5
+  speed: 10
 --- !u!114 &141898545
 MonoBehaviour:
   m_ObjectHideFlags: 0

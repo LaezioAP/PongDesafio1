@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     public int playerScore;
     public int AIScore;
-    int winningScore = 10;
+    int winningScore = 5;
 
     [Header("Objetos do Jogo")]
     public GameObject isPlayerTwo;
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void RestartGame() 
+    public void RestartGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

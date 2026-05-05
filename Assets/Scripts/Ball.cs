@@ -1,4 +1,5 @@
 using DG.Tweening;
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -9,6 +10,9 @@ public class Ball : MonoBehaviour
     public TrailRenderer trailRenderer;
     private Rigidbody2D rig;
     public SpriteRenderer sprite;
+    float maxSpeed = 18.0f;
+
+    PaddleJuice paddleJuice;
 
     public GameObject explosionEffect;
 
@@ -29,13 +33,13 @@ public class Ball : MonoBehaviour
     {
         audioSource.PlayOneShot(hit);
 
-        Vector2 direction = Vector2.zero;   
+        Vector2 direction = Vector2.zero;
 
         // Esquerda
         if (Random.value < 0.5f)
         {
             direction = Vector2.left;
-        } 
+        }
         // Direita
         else
         {
@@ -50,6 +54,7 @@ public class Ball : MonoBehaviour
     public void ResetBall()
     {
         PlayExplosionAndGameOverAudio();
+        GameSettings.BounceForce = 15; // Reseta a força de rebote para o valor inicial
 
 
         SpawnExplosionEffect();
@@ -84,7 +89,6 @@ public class Ball : MonoBehaviour
         if (other.gameObject.tag == "Paddle")
         {
             other.gameObject.GetComponent<PaddleJuice>().PlayHitEffect();
-
             BallEffectJuice();
         }
 
@@ -97,7 +101,6 @@ public class Ball : MonoBehaviour
     void BallEffectJuice()
     {
         audioSource.PlayOneShot(hit);
-
 
         sprite.transform.DOKill();
         sprite.transform.localScale = Vector3.one;
